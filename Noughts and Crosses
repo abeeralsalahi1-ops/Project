@@ -1,6 +1,7 @@
 import java.util.*;
 
 // 1. Doubly Linked List Node (سجل الحركات)
+
 class HistoryNode {
     String moveData;
     HistoryNode next, prev;
@@ -8,6 +9,7 @@ class HistoryNode {
 }
 
 // 2. Doubly Linked List (لإدارة السجل)
+
 class GameHistory {
     private HistoryNode head, tail;
     public void addMove(String msg) {
@@ -30,6 +32,7 @@ class GameHistory {
     }
 }
 // 3. المحرك الأساسي (OOP Engine)
+
 public class TicTacToeGame {
     private char[][] board = new char[3][3]; // Graph Representation
     private Stack<int[]> undoStack = new Stack<>(); // Stack
@@ -41,8 +44,10 @@ public class TicTacToeGame {
         // تهيئة اللوحة (Graph Nodes)
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++) board[i][j] = '-';
+
 // تهيئة الطابور (Queue) لإدارة الأدوار
-        turnQueue.add("اللاعب X");
+      
+turnQueue.add("اللاعب X");
         turnQueue.add("اللاعب O");
     }
 
@@ -72,10 +77,12 @@ public class TicTacToeGame {
 board[r][c] = symbol;
                 
                 // تخزين في المكدس (Stack) للتراجع مستقبلاً
-                undoStack.push(new int[]{r, c});
+               
+undoStack.push(new int[]{r, c});
                 
                 // إضافة للسجل (Doubly Linked List)
-                history.addMove(currentPlayer + " في [" + r + "," + c + "]");
+               
+history.addMove(currentPlayer + " في [" + r + "," + c + "]");
                 
                 // إعادة اللاعب لنهاية الطابور (Queue)
 turnQueue.add(currentPlayer);
